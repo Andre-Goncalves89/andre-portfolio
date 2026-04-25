@@ -11,7 +11,12 @@ export function PortfolioSection() {
             Portfólio
           </span>
 
-          <h2 className="text-3xl font-bold mt-2">Projetos em destaque</h2>
+          <h2
+            data-cy="portfolio-title"
+            className="text-3xl font-bold mt-2"
+          >
+            Projetos em destaque
+          </h2>
 
           <p className="text-gray-400 mt-3 max-w-2xl">
             Projetos desenvolvidos com foco em qualidade de software,

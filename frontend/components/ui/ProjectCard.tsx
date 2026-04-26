@@ -35,7 +35,12 @@ export function ProjectCard({
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
       </div>
 
-      <h3 className="text-2xl font-semibold mb-3">{title}</h3>
+      <h3
+        data-cy="project-title"
+        className="text-2xl font-semibold mb-3"
+      >
+        {title}
+      </h3>
 
       <p className="text-gray-300 mb-4">{description}</p>
 

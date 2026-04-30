@@ -7,4 +7,12 @@ export const projects = [
     projectUrl: "https://github.com/Andre-Goncalves89/technova",
     codeUrl: "https://github.com/SEU-REPO",
   },
+
+  {
+  title: "Everest Balnea",
+  description: "Landing page focada em geração de leads para banheiras premium, com foco em conversão e SEO.",
+  techs: ["JavaScript", "HTML", "CSS", "Vercel"],
+  projectUrl: "https://everest-balnea-app.vercel.app/",
+  codeUrl: "https://github.com/Andre-Goncalves89/everest-balnea-app",
+}
 ];

@@ -8,6 +8,5 @@ coverage/
 .DS_Store
 .vscode/
 .idea/
-package-lock.json
 pnpm-lock.yaml
 yarn.lock

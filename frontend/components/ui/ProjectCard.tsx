@@ -6,6 +6,9 @@ type ProjectCardProps = {
   techs: string[];
   projectUrl: string;
   codeUrl: string;
+  imageUrl: string;
+  imageAlt: string;
+  isFeatured?: boolean;
 };
 
 export function ProjectCard({
@@ -14,20 +17,29 @@ export function ProjectCard({
   techs,
   projectUrl,
   codeUrl,
+  imageUrl,
+  imageAlt,
+  isFeatured,
 }: ProjectCardProps) {
   return (
-    <div className="group relative bg-[#0b1a2b] rounded-2xl p-6 shadow-lg border border-white/5 
-      hover:border-green-400/40 
-      hover:shadow-[0_0_25px_rgba(34,197,94,0.15)] 
-      hover:-translate-y-1 
-      transition-all duration-300">
-      <div className="absolute top-4 right-4 z-10 bg-green-500/10 text-green-400 text-xs px-3 py-1 rounded-full border border-green-400/20">
-        ⭐ Projeto Principal
-      </div>
+    <div
+     data-cy={`project-card-${title.toLowerCase().replaceAll(" ", "-")}`}
+      className={`group relative bg-[#0b1a2b] rounded-2xl p-6 shadow-lg transition-all duration-300
+    ${isFeatured
+          ? "border border-green-400/30 shadow-[0_0_25px_rgba(34,197,94,0.10)] hover:shadow-[0_0_45px_rgba(34,197,94,0.25)] hover:-translate-y-1"
+          : "border border-white/5 hover:border-green-400/40 hover:shadow-[0_0_25px_rgba(34,197,94,0.15)] hover:-translate-y-1"
+        }`}
+    >
+      {isFeatured && (
+        <div className="absolute top-4 right-4 z-10 bg-green-500/10 text-green-400 text-xs px-3 py-1 rounded-full border border-green-400/20">
+          ⭐ Projeto Principal
+        </div>
+      )}
       <div className="relative h-[260px] w-full overflow-hidden rounded-xl mb-6">
         <Image
-          src="/images/technova-preview.png"
-          alt="Preview do projeto TechNova Lab"
+          src={imageUrl}
+          alt={imageAlt}
+          data-cy={`project-image-${title.toLowerCase().replaceAll(" ", "-")}`}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
         />

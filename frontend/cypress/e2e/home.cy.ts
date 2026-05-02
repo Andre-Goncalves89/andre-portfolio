@@ -26,6 +26,27 @@ describe("Portfolio homepage", () => {
           cy.contains("Código").should("be.visible");
         });
     });
+
+    it("Then the Everest project links should be correct", () => {
+      cy.get('[data-cy="project-card-everest-balnea"]')
+        .within(() => {
+
+          cy.contains("Ver projeto")
+            .should("have.attr", "href")
+            .and("include", "http");
+
+          cy.contains("Ver projeto")
+            .should("have.attr", "target", "_blank");
+
+          cy.contains("Código")
+            .should("have.attr", "href")
+            .and("include", "github");
+
+          cy.contains("Código")
+            .should("have.attr", "target", "_blank");
+
+        });
+    });
   });
 });
 

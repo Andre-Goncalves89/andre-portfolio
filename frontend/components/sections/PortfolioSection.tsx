@@ -3,6 +3,8 @@ import { projects } from "@/constants/projects";
 
 
 export function PortfolioSection() {
+  const featuredProject = projects.find(p => p.isFeatured);
+  const otherProjects = projects.filter(p => !p.isFeatured);
   return (
     <section className="w-full">
       <div className="max-w-6xl mx-auto px-4 py-20">
@@ -24,10 +26,22 @@ export function PortfolioSection() {
           </p>
         </div>
 
-        <div className="grid gap-6">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
+        <div className="flex flex-col gap-10">
+
+          {/* HERO PROJECT */}
+          {featuredProject && (
+            <div className="w-full">
+              <ProjectCard {...featuredProject} />
+            </div>
+          )}
+
+          {/* OUTROS PROJETOS */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {otherProjects.map((project) => (
+              <ProjectCard key={project.title} {...project} />
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
